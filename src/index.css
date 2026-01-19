@@ -1,60 +1,93 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --color-primary: #e2c275; /* Premium Gold */
-  --color-secondary: #0a0a0a; /* Deep Black */
-  --color-accent: #ffffff;
-  --color-muted: rgba(255, 255, 255, 0.5);
+@layer base {
+  :root {
+    --color-primary: #e2c275;
+    --color-secondary: #0a0a0a;
+    --color-accent: #ffffff;
+    --color-muted: rgba(255, 255, 255, 0.5);
+  }
 
-  --font-display: "Syne", sans-serif;
-  --font-body: "Instrument Sans", sans-serif;
+  body {
+    @apply bg-[#050505] text-white;
+    font-family: 'Instrument Sans', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) transparent;
+  }
 
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2.5rem;
-  --radius-3xl: 4rem;
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
 }
 
-:root {
-  background-color: #050505;
-  color: #ffffff;
-  font-family: var(--font-body);
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary) transparent;
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #e2c275 0%, #f9e29c 50%, #d4af37 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btn-premium {
+    @apply px-10 py-4 rounded-full border border-white/10 text-white transition-all duration-500 hover:border-primary hover:text-primary font-bold uppercase tracking-[0.2em] text-[10px];
+  }
+
+  .btn-premium-filled {
+    @apply px-10 py-4 rounded-full bg-primary text-black transition-all duration-500 hover:bg-white hover:text-black font-bold uppercase tracking-[0.2em] text-[10px];
+  }
+
+  .card-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shine::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(226, 194, 117, 0.1),
+      transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  .card-shine:hover::after {
+    left: 100%;
+    top: 100%;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-.font-display {
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+@layer utilities {
+  .reveal {
+    animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.gold-gradient {
-  background: linear-gradient(135deg, #e2c275 0%, #f9e29c 50%, #d4af37 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.btn-premium {
-  @apply px-10 py-4 rounded-full border border-white/10 text-white transition-all duration-500 hover:border-primary hover:text-primary font-bold uppercase tracking-[0.2em] text-[10px];
-}
-
-.btn-premium-filled {
-  @apply px-10 py-4 rounded-full bg-primary text-black transition-all duration-500 hover:bg-white hover:text-black font-bold uppercase tracking-[0.2em] text-[10px];
-}
-
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -64,50 +97,4 @@ h4,
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.reveal {
-  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  opacity: 0;
-}
-
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-
-.card-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-shine::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(226, 194, 117, 0.1),
-    transparent
-  );
-  transform: rotate(45deg);
-  transition: 0.5s;
-  pointer-events: none;
-}
-
-.card-shine:hover::after {
-  left: 100%;
-  top: 100%;
 }
