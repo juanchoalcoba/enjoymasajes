@@ -116,7 +116,7 @@ const Home = () => {
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            <a href="https://wa.me/yournumber" className="glass p-12 rounded-[3rem] hover:bg-white/5 transition-all group flex flex-col items-center">
+            <a href="https://wa.me/+59898237197" className="glass p-12 rounded-[3rem] hover:bg-white/5 transition-all group flex flex-col items-center">
               <div className="p-4 bg-primary/10 rounded-2xl text-primary mb-6 group-hover:scale-110 transition-transform">
                 <Calendar size={32} />
               </div>

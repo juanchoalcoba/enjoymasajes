@@ -57,10 +57,12 @@ const Spa = () => {
                 <div className="shrink-0 p-6 bg-primary/10 rounded-3xl text-primary h-fit group-hover:bg-primary group-hover:text-black transition-all duration-500">
                   {ritual.icon}
                 </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-display text-white">{ritual.name}</h3>
-                    <span className="text-2xl font-bold text-primary">{ritual.price}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="mb-4">
+                    <div className="flex justify-between items-center gap-4">
+                      <h3 className="text-2xl font-display text-white flex-1 min-w-0">{ritual.name}</h3>
+                      <span className="text-2xl font-bold text-primary whitespace-nowrap">{ritual.price}</span>
+                    </div>
                   </div>
                   <p className="text-white/40 text-sm leading-relaxed mb-8 max-w-md">{ritual.info}</p>
                   <div className="flex flex-wrap gap-4">
