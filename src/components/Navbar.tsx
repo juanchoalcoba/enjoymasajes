@@ -48,7 +48,7 @@ const Navbar = () => {
               </Link>
             ))}
             <a 
-              href="https://wa.me/yournumber" 
+              href="https://wa.me/+59898237197" 
               className="btn-premium-filled py-2 px-6"
             >
               Reservar
